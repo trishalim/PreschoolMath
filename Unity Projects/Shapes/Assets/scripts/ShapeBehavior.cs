@@ -23,9 +23,9 @@ public class ShapeBehavior : MonoBehaviour {
 			scoreScript.incrementScore ();
 		}
 		else {
-			Debug.Log ("Life");
-			Lives livesScript = (Lives) lives.GetComponent(typeof(Lives));
+			Lives livesScript = lives.GetComponent<Lives>() as Lives;
 			if(livesScript!=null){
+				Debug.Log ("Life");
 				livesScript.decrementLives();
 				Debug.Log (livesScript.count);
 			}

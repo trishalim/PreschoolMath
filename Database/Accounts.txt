@@ -1,0 +1,39 @@
+byethost
+name: a7h1
+username: b6_17093244
+password: password1
+
+Main Hosting Details
+Control panel username
+b6_17093244
+Control panel password	**********
+Control panel URL
+cpanel.byethost6.com
+MySQL username
+b6_17093244
+MySQL password
+**********
+MySQL hostname
+sql313.byethost6.com
+FTP username
+b6_17093244
+FTP password
+**********
+FTP host name	ftp.byethost6.com
+
+
+Your Website URL's
+Home page
+http://a7h1.byethost6.com
+
+
+000webhost
+
+account
+email: limtrishajean@gmail.com
+password:
+
+database
+name: thesis
+user: user
+password: password1

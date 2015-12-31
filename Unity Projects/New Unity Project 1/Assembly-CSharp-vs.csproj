@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Number.cs" />
      <Compile Include="Assets\Scripts\NumberPickedText.cs" />
      <Compile Include="Assets\Scripts\NumberPickup.cs" />
+     <Compile Include="Assets\Scripts\NumberPickupForOthers.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\TextColor.cs" />
   </ItemGroup>

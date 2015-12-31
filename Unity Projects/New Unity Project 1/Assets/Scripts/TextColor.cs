@@ -2,13 +2,15 @@
 using System.Collections;
 
 public class TextColor : MonoBehaviour {
-	public static GameObject gameOb;
+	public static GameObject gameOb, gameObNum,colorPart;
 	public static string num;
 	public static float[,] textColors;
-	public static GameObject colorParticle;
+	public static Sprite spr;
+	public GameObject colorParticle;
 
 	// Use this for initialization
 	void Start () {
+		colorPart = colorParticle;
 		textColors = new float[10, 3];
 
 		//1st num
@@ -69,7 +71,6 @@ public class TextColor : MonoBehaviour {
 	}
 
 	public static void changeColor(string number){
-		colorParticle = GameObject.Find ("NumberParticle");
 		int xndx;
 
 		num = "num" + PlayerController.currentNum;
@@ -77,14 +78,17 @@ public class TextColor : MonoBehaviour {
 
 		if (number == num) {
 			gameOb = GameObject.Find(number);
+			gameObNum = GameObject.Find("heart1");
 			gameOb.GetComponent<GUIText> ().color = new Color(textColors[xndx, 0],textColors[xndx, 1],textColors[xndx, 2]);
-			Instantiate (colorParticle, gameOb.transform.position, gameOb.transform.rotation);
+			Instantiate (colorPart, gameOb.transform.position, gameOb.transform.rotation);
 			PlayerController.currentNum++;
+			//Instantiate(gameObNum, new Vector3(1, 0.5f, 0), gameObNum.transform.rotation);
 		}
 		else {
 			gameOb = GameObject.Find("heart" + PlayerController.lives);
-			Instantiate (colorParticle, gameOb.transform.position, gameOb.transform.rotation);
-			Destroy(gameOb);
+			spr = (Sprite)Resources.Load ("hud_heartEmpty", typeof(Sprite)) as Sprite;
+			gameOb.GetComponent<SpriteRenderer> ().sprite = spr;
+			Instantiate (colorPart, new Vector3(0, 0.1f, 0), gameOb.transform.rotation);
 			PlayerController.lives--;
 		}
 	}

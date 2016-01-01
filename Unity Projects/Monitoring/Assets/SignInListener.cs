@@ -7,6 +7,7 @@ public class SignInListener : MonoBehaviour {
 
 	public InputField username;
 	public InputField password;
+	public Text errorMessage;
 
 	void Start () {
 		GetComponent<Button>().onClick.AddListener(() => Click());
@@ -22,6 +23,14 @@ public class SignInListener : MonoBehaviour {
 
 	IEnumerator ClickListener (WWW w){
 		yield return w;
-		Debug.Log (w.text);
+		if (w.text.Equals ("")) {
+			errorMessage.text = "Please connect to the internet.";
+		} else if (w.text.Equals ("Login success")) {
+			UserController.username = username.text;
+			Application.LoadLevel(2);
+		} else {
+			errorMessage.text = "Invalid username/password.";
+		}
+
 	}
 }

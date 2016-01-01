@@ -1,8 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\SignInListener.cs">
     <Files>
-      <File FileName="Assets\SignInListener.cs" Line="12" Column="65" />
+      <File FileName="Assets\SignInListener.cs" Line="29" Column="44" />
+      <File FileName="Assets\SignUpListener.cs" Line="32" Column="27" />
+      <File FileName="Assets\RegisterStudentListener.cs" Line="36" Column="27" />
+      <File FileName="Assets\UserController.cs" Line="1" Column="1" />
+      <File FileName="Assets\CreateStudentListener.cs" Line="17" Column="1" />
+      <File FileName="Assets\EnrollListener.cs" Line="32" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -46,7 +46,19 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Buttons\Game1Button.cs" />
+     <Compile Include="Assets\Scripts\Buttons\Game2Button.cs" />
+     <Compile Include="Assets\Scripts\Buttons\Game3Button.cs" />
+     <Compile Include="Assets\Scripts\Buttons\Menu.cs" />
+     <Compile Include="Assets\Scripts\Buttons\level1btn.cs" />
+     <Compile Include="Assets\Scripts\Buttons\level2btn.cs" />
+     <Compile Include="Assets\Scripts\Buttons\level3btn.cs" />
+     <Compile Include="Assets\Scripts\Buttons\level4btn.cs" />
+     <Compile Include="Assets\Scripts\Buttons\level5btn.cs" />
+     <Compile Include="Assets\Scripts\Countdown.cs" />
      <Compile Include="Assets\Scripts\DuplicateGround.cs" />
+     <Compile Include="Assets\Scripts\Fading.cs" />
+     <Compile Include="Assets\Scripts\LifeState.cs" />
      <Compile Include="Assets\Scripts\Number.cs" />
      <Compile Include="Assets\Scripts\NumberPickedText.cs" />
      <Compile Include="Assets\Scripts\NumberPickup.cs" />

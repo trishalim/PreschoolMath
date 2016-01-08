@@ -50,6 +50,7 @@
      <Compile Include="Assets\RegisterStudentListener.cs" />
      <Compile Include="Assets\SignInListener.cs" />
      <Compile Include="Assets\SignUpListener.cs" />
+     <Compile Include="Assets\StudentListController.cs" />
      <Compile Include="Assets\UserController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

@@ -10,24 +10,28 @@ public class DuplicateGround : MonoBehaviour {
 	public static GameObject playerr;
 	//public static float posxg;
 	//public static int curr;
-	//private int i = 0;
+	private int i, pos;
 	void Start(){
 		playerr = GameObject.Find ("Player");
+		i = 1;
+		pos = 13;
 	}
 
 	void Update(){
-		if (playerr.transform.position.x == 1) {
-			Debug.Log ("OH YEAH");
+		Debug.Log("i b4 " + i);
+		Debug.Log("pos b4 " + pos);
+		if (playerr.transform.position.x > pos) {
+			Dup();
 		}
 	}
-	/*
-	void Duplicate(){
-		Debug.Log ("currnum " + Number.currentNum);
-		Debug.Log ("curr " + curr);
-			Instantiate(gameObject, new Vector3(posxn, gameObject.transform.position.y, 0), gameObject.transform.rotation);
-			curr ++;
-			Debug.Log ("yey");
 
-		Debug.Log ("postcurr " + curr);
-	}*/
+	void Dup(){
+		Debug.Log("i sud " + i);
+		Debug.Log("pos sud " + pos);
+		i++;
+		pos = 13 * i;
+		Debug.Log("i " + i);
+		Debug.Log("pos " + pos);
+		Instantiate(gameObject, new Vector3(gameObject.transform.position.x + 15, gameObject.transform.position.y, 0), gameObject.transform.rotation);
+	}
 }

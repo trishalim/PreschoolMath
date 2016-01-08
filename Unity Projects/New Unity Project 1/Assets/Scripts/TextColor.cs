@@ -74,22 +74,29 @@ public class TextColor : MonoBehaviour {
 		int xndx;
 
 		num = "num" + PlayerController.currentNum;
-		xndx = PlayerController.currentNum - 1;
+		xndx = (PlayerController.currentNum % 10) - 1;
 
 		if (number == num) {
 			gameOb = GameObject.Find(number);
-			gameObNum = GameObject.Find("heart1");
 			gameOb.GetComponent<GUIText> ().color = new Color(textColors[xndx, 0],textColors[xndx, 1],textColors[xndx, 2]);
 			Instantiate (colorPart, gameOb.transform.position, gameOb.transform.rotation);
 			PlayerController.currentNum++;
-			//Instantiate(gameObNum, new Vector3(1, 0.5f, 0), gameObNum.transform.rotation);
+			if (PlayerController.currentNum == PlayerController.target) {
+				PlayerController.target += 10;
+				Application.LoadLevel(Application.loadedLevel + 1);
+			}
 		}
 		else {
-			gameOb = GameObject.Find("heart" + PlayerController.lives);
-			spr = (Sprite)Resources.Load ("hud_heartEmpty", typeof(Sprite)) as Sprite;
-			gameOb.GetComponent<SpriteRenderer> ().sprite = spr;
-			Instantiate (colorPart, new Vector3(0, 0.1f, 0), gameOb.transform.rotation);
-			PlayerController.lives--;
+			if(PlayerController.lives > 0){
+				gameOb = GameObject.Find("heart" + PlayerController.lives);
+				spr = (Sprite)Resources.Load ("hud_heartEmpty", typeof(Sprite)) as Sprite;
+				gameOb.GetComponent<SpriteRenderer> ().sprite = spr;
+				Instantiate (colorPart, new Vector3(0, 0.1f, 0), gameOb.transform.rotation);
+				PlayerController.lives--;
+			}
+			else {
+				Debug.Log("GAME OVER!");
+			}
 		}
 	}
 }

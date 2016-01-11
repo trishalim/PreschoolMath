@@ -19,7 +19,7 @@ public class EnrollListener : MonoBehaviour {
 			WWWForm form = new WWWForm ();
 			form.AddField ("student_username", username.text);
 			form.AddField ("guardian_username", UserController.username);
-			WWW w = new WWW("http://localhost/PreschoolMath/enroll_student.php", form);
+			WWW w = new WWW("http://preschoolmath.x10host.com/enroll_student.php", form);
 			StartCoroutine(Call (w));
 		}
 	}

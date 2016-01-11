@@ -10,13 +10,16 @@ public class StudentListController : MonoBehaviour {
 	void Start () {
 		WWWForm form = new WWWForm ();
 		form.AddField ("guardian_username", "Trisha");
-		WWW w = new WWW("http://localhost/PreschoolMath/retrieve_students.php", form);
+	
+		WWW w = new WWW("http://preschoolmath.x10host.com/retrieve_students.php", form);
+		//WWW w = new WWW("http://localhost/PreschoolMath/retrieve_students.php", form);
 		StartCoroutine (RetrieveStudents (w));
 	}
 
 	IEnumerator RetrieveStudents(WWW w){
 		yield return w;
-		FillList (w.text);
+		Debug.Log (w.text);
+		//FillList (w.text);
 	}
 
 	void FillList(string strList) {
@@ -38,7 +41,7 @@ public class StudentListController : MonoBehaviour {
 				} 
 				GameObject o = Instantiate(entry, new Vector3(addX*x+startX, addY*y+startY, 0), Quaternion.identity) as GameObject;
 
-				o.GetComponent<Text>().text=data;
+				//o.GetComponent<Text>().text=data;
 			}
 		}
 	}

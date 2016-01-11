@@ -28,7 +28,7 @@ public class RegisterStudentListener : MonoBehaviour {
 		form.AddField ("year", year.text);
 		form.AddField ("sex", sex.options[sex.value].text);
 		form.AddField ("guardian_username", UserController.username);
-		WWW w = new WWW ("http://localhost/PreschoolMath/register_student.php", form);
+		WWW w = new WWW ("http://preschoolmath.x10host.com/register_student.php", form);
 		StartCoroutine (Call (w));
 	}
 

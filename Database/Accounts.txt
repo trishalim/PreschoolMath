@@ -1,3 +1,10 @@
+X10HOST
+Username: preschoo
+Your Domain: http://preschoolmath.x10host.com/
+preschoo_math, preschoo_user
+user, password
+
+
 byethost
 name: a7h1
 username: b6_17093244
@@ -37,3 +44,4 @@ database
 name: thesis
 user: user
 password: password1
+

@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class CreateStudentListener : MonoBehaviour {
 
@@ -11,6 +12,6 @@ public class CreateStudentListener : MonoBehaviour {
 
 	void ClickListener() {
 		Debug.Log ("enroll click");
-		Application.LoadLevel ("register_student");
+		SceneManager.LoadScene("register_student");
 	}
 }

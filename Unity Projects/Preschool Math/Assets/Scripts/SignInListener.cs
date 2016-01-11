@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -29,7 +30,7 @@ public class SignInListener : MonoBehaviour {
 		} else if (w.text.Equals ("Login success")) {
 			Debug.Log ("success!!!");
 			UserController.username = username.text;
-			Application.LoadLevel("student_list");
+			SceneManager.LoadScene("student_list");
 		} else {
 			errorMessage.text = "Invalid username/password.";
 		}

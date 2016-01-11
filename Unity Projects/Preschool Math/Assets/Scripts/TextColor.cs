@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TextColor : MonoBehaviour {
 	public static GameObject gameOb, gameObNum,colorPart;
@@ -29,39 +30,39 @@ public class TextColor : MonoBehaviour {
 		textColors [2, 2] = 0.094f;
 
 		//4th num
-		textColors [3, 0] = 0.996f;
-		textColors [3, 1] = 0.518f;
-		textColors [3, 2] = 0.094f;
+		textColors [3, 0] = 0.2f;
+		textColors [3, 1] = 0.8f;
+		textColors [3, 2] = 0.2f;
 		
 		//5th num
-		textColors [4, 0] = 0.996f;
-		textColors [4, 1] = 0.518f;
-		textColors [4, 2] = 0.094f;
+		textColors [4, 0] = 0.054f;
+		textColors [4, 1] = 0.713f;
+		textColors [4, 2] = 0.561f;
 		
 		//6th num
-		textColors [5, 0] = 0.996f;
-		textColors [5, 1] = 0.518f;
-		textColors [5, 2] = 0.094f;
+		textColors [5, 0] = 0;
+		textColors [5, 1] = 0.502f;
+		textColors [5, 2] = 1;
 		
 		//7th num
-		textColors [6, 0] = 0.996f;
-		textColors [6, 1] = 0.518f;
-		textColors [6, 2] = 0.094f;
+		textColors [6, 0] = 0;
+		textColors [6, 1] = 0;
+		textColors [6, 2] = 0.659f;
 		
 		//8th num
-		textColors [7, 0] = 0.996f;
-		textColors [7, 1] = 0.518f;
-		textColors [7, 2] = 0.094f;
+		textColors [7, 0] = 0.569f;
+		textColors [7, 1] = 0;
+		textColors [7, 2] = 0.482f;
 		
 		//9th num
-		textColors [8, 0] = 0.996f;
-		textColors [8, 1] = 0.518f;
-		textColors [8, 2] = 0.094f;
+		textColors [8, 0] = 0.819f;
+		textColors [8, 1] = 0.004f;
+		textColors [8, 2] = 0.517f;
 		
 		//10th num
-		textColors [9, 0] = 0.996f;
-		textColors [9, 1] = 0.518f;
-		textColors [9, 2] = 0.094f;
+		textColors [9, 0] = 1;
+		textColors [9, 1] = 0.502f;
+		textColors [9, 2] = 0.753f;
 	}
 	
 	// Update is called once per frame
@@ -83,7 +84,7 @@ public class TextColor : MonoBehaviour {
 			PlayerController.currentNum++;
 			if (PlayerController.currentNum == PlayerController.target) {
 				PlayerController.target += 10;
-				Application.LoadLevel(Application.loadedLevel + 1);
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 			}
 		}
 		else {
@@ -91,7 +92,7 @@ public class TextColor : MonoBehaviour {
 				gameOb = GameObject.Find("heart" + PlayerController.lives);
 				spr = (Sprite)Resources.Load ("hud_heartEmpty", typeof(Sprite)) as Sprite;
 				gameOb.GetComponent<SpriteRenderer> ().sprite = spr;
-				Instantiate (colorPart, new Vector3(0, 0.1f, 0), gameOb.transform.rotation);
+				Instantiate (colorPart, new Vector3(gameOb.transform.position.x, gameOb.transform.position.y, 0), gameOb.transform.rotation);
 				PlayerController.lives--;
 			}
 			else {

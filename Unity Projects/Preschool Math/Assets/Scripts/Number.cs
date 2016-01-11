@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Number : MonoBehaviour {
 
@@ -21,7 +22,7 @@ public class Number : MonoBehaviour {
 	}
 
 	Sprite GetRandomNumber(){
-		int max = 10 * Application.loadedLevel;
+		int max = 10 * SceneManager.GetActiveScene().buildIndex;
 		int min = max - 9;
 		int numberId = Random.Range (min, max);
 		numSpr = (Sprite)Resources.Load ("num" + numberId, typeof(Sprite)) as Sprite;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class level4btn : MonoBehaviour {
 
@@ -15,20 +16,17 @@ public class level4btn : MonoBehaviour {
 	void OnGUI()
 	{
 		GUI.skin = skin;
-		// Determine the button's place on screen
-		// Center in X, 2/3 of the height in Y
 		Rect buttonRect = new Rect(
 			(4 * Screen.width / 6) - (buttonWidth / 2),
 			(Screen.height / 2) - (buttonHeight / 2),
 			buttonWidth,
 			buttonHeight
 			);
-		
-		// Draw a button to start the game
+
 		if(GUI.Button(buttonRect,""))
 		{
 			if(PlayerController.target == 40)
-				Application.LoadLevel("31to40");
+				SceneManager.LoadScene("31to40");
 		}
 	}
 }

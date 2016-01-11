@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Game1Button : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class Game1Button : MonoBehaviour
 			// "Stage1" is the name of the first scene we created.
 			float fadeTime = GameObject.Find("TITLE").GetComponent<Fading>().BeginFade(1);
 			new WaitForSeconds(fadeTime);
-			Application.LoadLevel("1to10");
+			SceneManager.LoadScene("1to10");
 		}
 	}
 }

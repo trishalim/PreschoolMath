@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class level5btn : MonoBehaviour {
 
@@ -27,7 +28,7 @@ public class level5btn : MonoBehaviour {
 			// Draw a button to start the game
 			if (GUI.Button (buttonRect, "")) {
 				if(PlayerController.target == 50)
-					Application.LoadLevel ("41to50");
+				SceneManager.LoadScene ("41to50");
 			}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class TextColor : MonoBehaviour {
 	public static GameObject gameOb, gameObNum,colorPart;
@@ -78,8 +79,8 @@ public class TextColor : MonoBehaviour {
 		xndx = (PlayerController.currentNum % 10) - 1;
 
 		if (number == num) {
-			gameOb = GameObject.Find(number);
-			gameOb.GetComponent<GUIText> ().color = new Color(textColors[xndx, 0],textColors[xndx, 1],textColors[xndx, 2]);
+			gameOb = GameObject.Find("num" + (xndx + 1).ToString());
+			gameOb.GetComponent<Text>().color = new Color(textColors[xndx, 0],textColors[xndx, 1],textColors[xndx, 2]);
 			Instantiate (colorPart, gameOb.transform.position, gameOb.transform.rotation);
 			PlayerController.currentNum++;
 			if (PlayerController.currentNum == PlayerController.target) {

@@ -36,7 +36,7 @@ public class ButtonActions : MonoBehaviour
 		SceneManager.LoadScene("game2levels");
 	}
 
-	public void LoadGame2()
+	public void LoadGame3()
 	{
 		SceneManager.LoadScene("game3");
 	}

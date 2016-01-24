@@ -82,11 +82,11 @@ public class TextColor : MonoBehaviour {
 			gameOb = GameObject.Find("num" + (xndx + 1).ToString());
 			gameOb.GetComponent<Text>().color = new Color(textColors[xndx, 0],textColors[xndx, 1],textColors[xndx, 2]);
 			Instantiate (colorPart, gameOb.transform.position, gameOb.transform.rotation);
-			PlayerController.currentNum++;
 			if (PlayerController.currentNum == PlayerController.target) {
 				PlayerController.target += 10;
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 			}
+			PlayerController.currentNum++;
 		}
 		else {
 			if(PlayerController.lives > 0){

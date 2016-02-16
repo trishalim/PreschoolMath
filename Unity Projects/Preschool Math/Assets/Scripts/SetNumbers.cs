@@ -9,12 +9,10 @@ public class SetNumbers : MonoBehaviour {
 	void Start () {
 		int last = SceneManager.GetActiveScene ().buildIndex * 10;
 		GameObject obj;
-		for (int i = last, j = 10; i > (last - 10); i--, j--) {
-			obj = GameObject.Find("num" + j.ToString());
-			obj.GetComponent<Text> ().text = i.ToString ();
-		}
+		for (int i = last, j = 10; i > (last - 10); i--, j--) 
+			GameObject.Find ("n" + j.ToString()).GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("h" + i.ToString(), typeof(Sprite)) as Sprite;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	

@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Game3 : MonoBehaviour {
 	int[] cho = new int[11];
 	public static int answer;
 	// Use this for initialization
 	void Start () {
+		PlayerController.currentgame = SceneManager.GetActiveScene ().buildIndex;
 		setDigits ();
 	}
 	
@@ -65,5 +67,9 @@ public class Game3 : MonoBehaviour {
 
 	public bool checkChoice(int num){
 		return (cho [num] == 1) ? false : true;
+	}
+
+	public void quit(){
+		Debug.Log ("bye");
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class G3Answer : MonoBehaviour {
 
@@ -20,11 +21,23 @@ public class G3Answer : MonoBehaviour {
 		if (gameObject.GetComponent<SpriteRenderer> ().sprite.name == name) {
 			glow = (Sprite)Resources.Load ("glowc", typeof(Sprite)) as Sprite;
 			icon = (Sprite)Resources.Load ("check", typeof(Sprite)) as Sprite;
+			Game3Sub.score++;
+			Congrats.score++;
 		} else {
 			glow = (Sprite)Resources.Load ("gloww", typeof(Sprite)) as Sprite;
 			icon = (Sprite)Resources.Load ("wrong", typeof(Sprite)) as Sprite;
 		}
 		GameObject.Find ("glow").GetComponent<SpriteRenderer> ().sprite = glow;	
 		GameObject.Find ("icon").GetComponent<SpriteRenderer> ().sprite = icon;	
+		Game3Sub.repeat++;
+		if(Game3Sub.repeat < 10)
+			StartCoroutine(playAgain());
+		else
+			SceneManager.LoadScene ("congrats");
+	}
+
+	IEnumerator playAgain(){		
+		yield return new WaitForSeconds (1);
+		SceneManager.LoadScene ("game3");
 	}
 }

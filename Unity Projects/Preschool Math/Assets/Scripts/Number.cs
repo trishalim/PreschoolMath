@@ -23,9 +23,9 @@ public class Number : MonoBehaviour {
 
 	Sprite GetRandomNumber(){
 		int max = 10 * SceneManager.GetActiveScene().buildIndex;
-		int min = max - 9;
+		int min = PlayerController.currentNum;
 		int numberId = Random.Range (min, max + 1);
-		numSpr = (Sprite)Resources.Load ("num" + numberId, typeof(Sprite)) as Sprite;
+		numSpr = (Sprite)Resources.Load ("n" + numberId, typeof(Sprite)) as Sprite;
 		return numSpr;
 	}
 

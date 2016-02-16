@@ -6,6 +6,8 @@ using System;
 public class StudentListController : MonoBehaviour {
 
 	public Transform entry;
+	public Transform body;
+	public Transform row;
 
 	void Start () {
 		WWWForm form = new WWWForm ();
@@ -19,7 +21,7 @@ public class StudentListController : MonoBehaviour {
 	IEnumerator RetrieveStudents(WWW w){
 		yield return w;
 		Debug.Log (w.text);
-		//FillList (w.text);
+		FillList (w.text);
 	}
 
 	void FillList(string strList) {
@@ -39,9 +41,10 @@ public class StudentListController : MonoBehaviour {
 				} else if (x==4) {
 					data = getSex(data).ToString();
 				} 
-				GameObject o = Instantiate(entry, new Vector3(addX*x+startX, addY*y+startY, 0), Quaternion.identity) as GameObject;
-
-				//o.GetComponent<Text>().text=data;
+				//GameObject obj = Instantiate(entry, new Vector3(addX*x+startX, addY*y+startY, 0), Quaternion.identity) as GameObject;
+				GameObject e = Instantiate(row, new Vector3(startX + 100*x, startY + 40*y, 0), Quaternion.identity) as GameObject;
+				//e.GetComponent<Text> ().text = data;
+				//e.transform.SetParent (GameObject.Find("Canvas").transform);
 			}
 		}
 	}

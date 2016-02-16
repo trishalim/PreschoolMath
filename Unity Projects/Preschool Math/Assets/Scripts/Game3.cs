@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Game3 : MonoBehaviour {
 	int[] cho = new int[11];
+	public static int answer;
 	// Use this for initialization
 	void Start () {
 		setDigits ();
@@ -14,33 +15,35 @@ public class Game3 : MonoBehaviour {
 	}
 
 	public void setDigits(){
-		GameObject digit;
-		Sprite fruit = (Sprite)Resources.Load ("cherry", typeof(Sprite)) as Sprite;
+		GameObject digit, digit2;
+		int frt1 = Random.Range (1, 6);
+		int frt2 = Random.Range (1, 6);
+		Sprite fruit1 = (Sprite)Resources.Load ("fruit" + frt1.ToString(), typeof(Sprite)) as Sprite;
+		Sprite fruit2 = (Sprite)Resources.Load ("fruit" + frt2.ToString(), typeof(Sprite)) as Sprite;
 		int numF, numS, i, j;
-		numF = Random.Range (1, 5);
-		numS = Random.Range (1, 5);
+		numF = Random.Range (1, 6);
+		numS = Random.Range (1, 6);
 
 		for (i = 1; i <= numF; i++) {
 			digit = GameObject.Find ("digit1" + i.ToString());
-			digit.GetComponent<SpriteRenderer> ().sprite = fruit;
+			digit.GetComponent<SpriteRenderer> ().sprite = fruit1;
 		}
 
 		for (j = 1; j <= numS; j++) {
-			digit = GameObject.Find ("digit2" + j.ToString());
-			//digit.GetComponent<SpriteRenderer> ().sprite = fruit;
+			digit2 = GameObject.Find ("digit2" + j.ToString());
+			digit2.GetComponent<SpriteRenderer> ().sprite = fruit2;
 		}
-
-		setChoices (numF + numS);
+		answer = numF + numS;
+		setChoices (answer);
 	}
 
 	public void setChoices(int ans){
-		Debug.Log ("answer: " + ans);
 		GameObject option;
 		int[] choices = new int[3];
 		bool opt;
 
 		//for correct answer
-		int anspos = Random.Range (1, 2);
+		int anspos = Random.Range (0, 3);
 		choices [anspos] = ans;
 		cho [ans] = 1;
 		option = GameObject.Find ("choice" + anspos.ToString ());
@@ -51,7 +54,7 @@ public class Game3 : MonoBehaviour {
 			opt = false;
 			if (i != anspos) {				
 				while (opt == false) {
-					choices[i] = Random.Range (0, 10);
+					choices[i] = Random.Range (1, 11);
 					opt = checkChoice (choices [i]);
 				}
 				option = GameObject.Find ("choice" + i.ToString ());

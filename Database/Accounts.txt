@@ -4,6 +4,7 @@ Your Domain: http://preschoolmath.x10host.com/
 preschoo_math, preschoo_user
 user, password
 
+http://www.mydomain.com/mygame.unity3d
 
 byethost
 name: a7h1

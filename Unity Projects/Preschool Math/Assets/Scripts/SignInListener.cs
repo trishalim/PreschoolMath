@@ -18,7 +18,7 @@ public class SignInListener : MonoBehaviour {
 		WWWForm form = new WWWForm();
 		form.AddField("user", username.text);
 		form.AddField("pw", password.text);
-		WWW w = new WWW("http://preschoolmath.x10host.com/login.php", form);
+		WWW w = new WWW("http://preschoolmath.x10host.com/unity/login.php", form);
 		StartCoroutine (ClickListener(w));
 	}
 
@@ -30,7 +30,7 @@ public class SignInListener : MonoBehaviour {
 		} else if (w.text.Equals ("Login success")) {
 			Debug.Log ("success!!!");
 			UserController.username = username.text;
-			SceneManager.LoadScene("student_list");
+			SceneManager.LoadScene("mainmenu");
 		} else {
 			errorMessage.text = "Invalid username/password.";
 		}

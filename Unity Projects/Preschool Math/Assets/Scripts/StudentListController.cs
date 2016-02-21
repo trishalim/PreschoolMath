@@ -27,10 +27,10 @@ public class StudentListController : MonoBehaviour {
 	void FillList(string strList) {
 		string[] studentData;
 		string[] studentList = strList.Split (';');
-		int startX = -253;
-		int startY = 70;
-		int addX = 100;
-		int addY = 30;
+		//int startX = -253;
+		//int startY = 70;
+		//int addX = 100;
+		//int addY = 30;
 		for (int y = 0; y<studentList.Length; y++ ) {
 			string student = studentList[y];
 			studentData = student.Split(',');
@@ -42,7 +42,7 @@ public class StudentListController : MonoBehaviour {
 					data = getSex(data).ToString();
 				} 
 				//GameObject obj = Instantiate(entry, new Vector3(addX*x+startX, addY*y+startY, 0), Quaternion.identity) as GameObject;
-				GameObject e = Instantiate(row, new Vector3(startX + 100*x, startY + 40*y, 0), Quaternion.identity) as GameObject;
+			//	GameObject e = Instantiate(row, new Vector3(startX + 100*x, startY + 40*y, 0), Quaternion.identity) as GameObject;
 				//e.GetComponent<Text> ().text = data;
 				//e.transform.SetParent (GameObject.Find("Canvas").transform);
 			}

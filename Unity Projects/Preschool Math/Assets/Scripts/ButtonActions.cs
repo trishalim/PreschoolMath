@@ -31,6 +31,11 @@ public class ButtonActions : MonoBehaviour
 		SceneManager.LoadScene("submenu");
 	}
 
+	public void LoadGame1()
+	{
+		SceneManager.LoadScene("game1");
+	}
+
 	public void LoadGame2()
 	{
 		SceneManager.LoadScene("game2levels");

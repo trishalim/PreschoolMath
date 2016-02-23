@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class TextColor : MonoBehaviour {
 	public static GameObject gameOb, gameObNum,colorPart;
 	public static string num;
-	public static float[,] textColors;
 	public static Sprite spr;
 	public GameObject colorParticle;
 
@@ -36,9 +35,10 @@ public class TextColor : MonoBehaviour {
 				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 			}
 			PlayerController.currentNum++;
+			Congrats.score++;
 		}
 		else {
-			if(PlayerController.lives > 0){
+			if(PlayerController.lives > 1){
 				gameOb = GameObject.Find("heart" + PlayerController.lives);
 				spr = (Sprite)Resources.Load ("hud_heartEmpty", typeof(Sprite)) as Sprite;
 				gameOb.GetComponent<SpriteRenderer> ().sprite = spr;
@@ -46,7 +46,6 @@ public class TextColor : MonoBehaviour {
 				PlayerController.lives--;
 			}
 			else {
-				Congrats.score = PlayerController.lives * 2;
 				SceneManager.LoadScene ("congrats");
 			}
 		}

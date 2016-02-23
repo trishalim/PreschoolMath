@@ -17,6 +17,9 @@ public class G2Btn : MonoBehaviour {
 	void OnMouseDown(){
 		string scene = "";
 		switch (game) {
+		case 1:
+			scene = "game1";
+			break;
 		case 2:
 			scene = "game2levels";
 			break;
@@ -36,6 +39,7 @@ public class G2Btn : MonoBehaviour {
 			scene = "";
 			break;
 		}	
+		Debug.Log (scene);
 		SceneManager.LoadScene (scene);
 	}
 }

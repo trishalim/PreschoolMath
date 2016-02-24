@@ -27,6 +27,7 @@ public class TextColor : MonoBehaviour {
 		xndx = PlayerController.currentNum % 10;
 
 		if (number == num) {
+			GameObject.Find("Player").GetComponent<AudioSource> ().Play ();
 			gameOb = GameObject.Find("n" + xndx.ToString());
 			gameOb.GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load(number, typeof(Sprite)) as Sprite;
 			Instantiate (colorPart, gameOb.transform.position, gameOb.transform.rotation);
@@ -39,6 +40,7 @@ public class TextColor : MonoBehaviour {
 		}
 		else {
 			if(PlayerController.lives > 1){
+				GameObject.Find("heart1").GetComponent<AudioSource> ().Play ();
 				gameOb = GameObject.Find("heart" + PlayerController.lives);
 				spr = (Sprite)Resources.Load ("hud_heartEmpty", typeof(Sprite)) as Sprite;
 				gameOb.GetComponent<SpriteRenderer> ().sprite = spr;

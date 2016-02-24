@@ -5,12 +5,15 @@ using UnityEngine.SceneManagement;
 public class Number : MonoBehaviour {
 
 	public Sprite numSpr;
-
+	public GameObject ground;
+	public static float posx;
 	public static int[] numbersUsed;
-	public int i;
+	public int i, x;
 
 	void Start () {
 		SetRandomNumber();
+		posx = GameObject.Find("1stnum").transform.position.x + 30.0f;
+		x = 0;
 	}
 
 	void SetNumber(Sprite number){
@@ -29,4 +32,7 @@ public class Number : MonoBehaviour {
 		return numSpr;
 	}
 
+	void OnBecameVisible(){
+
+	}
 }

@@ -27,12 +27,12 @@ public class SignInListener : MonoBehaviour {
 		Debug.Log (w.text);
 		if (w.text.Equals ("")) {
 			errorMessage.text = "Please connect to the internet.";
-		} else if (w.text.Equals ("Login success")) {
+		} else if (w.text.Equals ("ok")) {
 			Debug.Log ("success!!!");
 			UserController.username = username.text;
 			SceneManager.LoadScene("mainmenu");
 		} else {
-			errorMessage.text = "Invalid username/password.";
+			errorMessage.text = w.text;
 		}
 
 	}

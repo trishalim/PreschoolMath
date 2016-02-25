@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class RegisterStudentListener : MonoBehaviour {
 
@@ -37,9 +38,12 @@ public class RegisterStudentListener : MonoBehaviour {
 	IEnumerator Call (WWW w){
 		yield return w;
 		Debug.Log (w.text);
-		if (w.text.Length!=0) {
-			Debug.Log ("exists");
+		Debug.Log (w.text.Length);
+		if (w.text.Length > 1) {
 			errorMessage.text = w.text;
+		} else {
+			UserController.username = username.text;
+			SceneManager.LoadScene("mainmenu");
 		}
 	}
 }

@@ -30,16 +30,16 @@ public class RegisterStudentListener : MonoBehaviour {
 		form.AddField ("sex", sex.options[sex.value].text);
 		form.AddField ("password", password.text);
 		form.AddField ("guardian_username", UserController.username);
-		WWW w = new WWW ("http://preschoolmath.x10host.com/register_student.php", form);
+		WWW w = new WWW ("http://preschoolmath.x10host.com/unity/register_student.php", form);
 		StartCoroutine (Call (w));
 	}
 
 	IEnumerator Call (WWW w){
 		yield return w;
 		Debug.Log (w.text);
-		if (w.text.Contains("Username already exists.")) {
+		if (w.text.Length!=0) {
 			Debug.Log ("exists");
-			errorMessage.text = "Username already exists.";
+			errorMessage.text = w.text;
 		}
 	}
 }

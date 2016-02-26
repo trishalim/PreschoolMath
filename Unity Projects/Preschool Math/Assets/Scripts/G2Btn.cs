@@ -15,31 +15,37 @@ public class G2Btn : MonoBehaviour {
 	}
 
 	void OnMouseDown(){
-		string scene = "";
-		switch (game) {
-		case 1:
-			scene = "game1";
-			break;
-		case 2:
-			scene = "game2levels";
-			break;
-		case 3:
-			scene = "game3sub";
-			break;
-		case 4:
-			scene = "submenu";
-			break;
-		case 5:
-			scene = "game3";
-			break;
-		case 6:
-			scene = "sub";
-			break;
-		default:
-			scene = "";
-			break;
-		}	
-		Debug.Log (scene);
-		SceneManager.LoadScene (scene);
+		if (game < 8) {
+			string scene = "";
+			switch (game) {
+			case 1:
+				scene = "game1";
+				break;
+			case 2:
+				scene = "game2levels";
+				break;
+			case 3:
+				scene = "game3sub";
+				break;
+			case 4:
+				scene = "submenu";
+				break;
+			case 5:
+				scene = "game3";
+				break;
+			case 6:
+				scene = "sub";
+				break;
+			case 7:
+				scene = "mainmenu";
+				break;
+			default:
+				scene = "";
+				break;
+			}	
+			GameObject.Find ("buttonSound").GetComponent<AudioSource> ().Play ();
+			SceneManager.LoadScene (scene);
+		} else if (game == 8)
+			Application.Quit ();
 	}
 }

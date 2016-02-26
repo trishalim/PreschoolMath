@@ -37,9 +37,6 @@ public class Pause : MonoBehaviour {
 	}
 
 	void resume(){
-		GameObject.Find ("choice1").GetComponent<BoxCollider2D> ().enabled = true;
-		GameObject.Find ("choice0").GetComponent<BoxCollider2D> ().enabled = true;
-		GameObject.Find ("choice2").GetComponent<BoxCollider2D> ().enabled = true;
 		GameObject.Find ("pause").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("", typeof(Sprite)) as Sprite;
 		GameObject.Find ("pausemenu").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("", typeof(Sprite)) as Sprite;
 		GameObject.Find ("resume").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("", typeof(Sprite)) as Sprite;

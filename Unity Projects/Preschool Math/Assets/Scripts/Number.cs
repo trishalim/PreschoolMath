@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 public class Number : MonoBehaviour {
 
 	public Sprite numSpr;
-	public GameObject ground;
 	public static float posx;
 	public static int[] numbersUsed;
 	public int i, x;
@@ -25,8 +24,9 @@ public class Number : MonoBehaviour {
 	}
 
 	Sprite GetRandomNumber(){
-		int max = 10 * SceneManager.GetActiveScene().buildIndex;
-		int min = PlayerController.currentNum;
+		int max = 10 * (SceneManager.GetActiveScene().buildIndex - 1);
+		//int min = PlayerController.currentNum;
+		int min = max - 9;
 		int numberId = Random.Range (min, max + 1);
 		numSpr = (Sprite)Resources.Load ("n" + numberId, typeof(Sprite)) as Sprite;
 		return numSpr;

@@ -44,7 +44,7 @@ public class TextColor : MonoBehaviour {
 				gameOb = GameObject.Find("heart" + PlayerController.lives);
 				spr = (Sprite)Resources.Load ("hud_heartEmpty", typeof(Sprite)) as Sprite;
 				gameOb.GetComponent<SpriteRenderer> ().sprite = spr;
-				Instantiate (colorPart, new Vector3(gameOb.transform.position.x, gameOb.transform.position.y, 0), gameOb.transform.rotation);
+				Instantiate (colorPart, gameOb.transform.position, gameOb.transform.rotation);
 				PlayerController.lives--;
 			}
 			else {

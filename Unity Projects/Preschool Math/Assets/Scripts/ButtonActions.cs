@@ -9,7 +9,7 @@ public class ButtonActions : MonoBehaviour
 		GameObject btn;
 
 		//Game 2 Levels
-		if (SceneManager.GetActiveScene ().buildIndex == 7) {
+		if (SceneManager.GetActiveScene ().name == "game2levels") {
 			int lo = (PlayerController.target / 10);
 			string but;
 			for (int i = 1; i <= lo; i++) {
@@ -18,32 +18,6 @@ public class ButtonActions : MonoBehaviour
 				btn.GetComponent<Button> ().interactable = true;
 			}		
 		}
-
-		//Main Menu
-		if (SceneManager.GetActiveScene ().buildIndex == 0) {
-			btn = GameObject.Find ("MainBtn");
-			btn.GetComponent<RectTransform> ().sizeDelta.Set(300, 100);
-		}
-	}
-
-	public void LoadSub()
-	{
-		SceneManager.LoadScene("submenu");
-	}
-
-	public void LoadGame1()
-	{
-		SceneManager.LoadScene("game1");
-	}
-
-	public void LoadGame2()
-	{
-		SceneManager.LoadScene("game2levels");
-	}
-
-	public void LoadGame3()
-	{
-		SceneManager.LoadScene("game3");
 	}
 
 	public void LoadLev1()

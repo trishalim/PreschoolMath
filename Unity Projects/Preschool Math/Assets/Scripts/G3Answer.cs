@@ -19,11 +19,13 @@ public class G3Answer : MonoBehaviour {
 		Sprite glow, icon;
 		GameObject.Find ("ans").GetComponent<SpriteRenderer> ().sprite = spr;
 		if (gameObject.GetComponent<SpriteRenderer> ().sprite.name == name) {
+			GameObject.Find ("choicebg").GetComponent<AudioSource> ().Play ();
 			glow = (Sprite)Resources.Load ("glowc", typeof(Sprite)) as Sprite;
 			icon = (Sprite)Resources.Load ("check", typeof(Sprite)) as Sprite;
 			Game3Sub.score++;
 			Congrats.score++;
 		} else {
+			GameObject.Find ("choicebg1").GetComponent<AudioSource> ().Play ();
 			glow = (Sprite)Resources.Load ("gloww", typeof(Sprite)) as Sprite;
 			icon = (Sprite)Resources.Load ("wrong", typeof(Sprite)) as Sprite;
 		}

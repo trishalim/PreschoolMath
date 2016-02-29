@@ -18,6 +18,7 @@ public class RegisterStudentListener : MonoBehaviour {
 
 	void Start() {
 		GetComponent<Button>().onClick.AddListener(() => ClickListener());
+
 	}
 
 	void ClickListener () {

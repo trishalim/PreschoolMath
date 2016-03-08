@@ -4,8 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class RandomShape : MonoBehaviour {
 	public string namez;
+	public GameScore gs;
 	// Use this for initialization
-	void Start () {		
+	void Start () {	
+		gs = new GameScore ();
 		namez = "shape" + GameObject.Find ("shapetap").GetComponent<SpriteRenderer> ().sprite.name;
 		int num = Random.Range (1, 6);
 		GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("shapes/shape"+ num, typeof(Sprite)) as Sprite;
@@ -39,9 +41,11 @@ public class RandomShape : MonoBehaviour {
 
 	IEnumerator playAgain(){	
 		yield return new WaitForSeconds (1);	
-		if(G1.counter < 10)
-			SceneManager.LoadScene (SceneManager.GetActiveScene().name);
-		else
+		if (G1.counter < 10)
+			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+		else {
+			gs.addScore (1, 0, Congrats.score);
 			SceneManager.LoadScene ("congrats");		
+		}
 	}
 }

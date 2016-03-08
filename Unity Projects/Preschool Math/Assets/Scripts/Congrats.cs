@@ -40,5 +40,6 @@ public class Congrats : MonoBehaviour {
 			yield return new WaitForSeconds (0.5f);
 			GameObject.Find ("star" + j.ToString()).GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("star", typeof(Sprite)) as Sprite;
 		}
+		score = 0;
 	}
 }

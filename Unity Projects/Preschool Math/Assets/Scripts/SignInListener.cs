@@ -18,7 +18,8 @@ public class SignInListener : MonoBehaviour {
 		WWWForm form = new WWWForm();
 		form.AddField("user", username.text);
 		form.AddField("pw", password.text);
-		WWW w = new WWW("http://preschoolmath.x10host.com/unity/login.php", form);
+		WWW w = new WWW (Url.url + "/unity/login.php", form);
+		//WWW w = new WWW("http://preschoolmath.x10host.com/unity/login.php", form);
 		StartCoroutine (ClickListener(w));
 	}
 

@@ -12,8 +12,8 @@ public class StudentListController : MonoBehaviour {
 	void Start () {
 		WWWForm form = new WWWForm ();
 		form.AddField ("guardian_username", "Trisha");
-	
-		WWW w = new WWW("http://preschoolmath.x10host.com/retrieve_students.php", form);
+		String url = Url.url + "/retrieve_students.php";
+		WWW w = new WWW("url", form);
 		//WWW w = new WWW("http://localhost/PreschoolMath/retrieve_students.php", form);
 		StartCoroutine (RetrieveStudents (w));
 	}

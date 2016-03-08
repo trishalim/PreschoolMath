@@ -22,7 +22,7 @@ public class SignUpListener : MonoBehaviour {
 			form.AddField ("f_name", f_name.text);
 			form.AddField ("l_name", l_name.text);
 			form.AddField ("password", password.text);
-			WWW w = new WWW ("http://preschoolmath.x10host.com/unity/signup.php", form);
+			WWW w = new WWW (Url.url + "/unity/signup.php", form);
 			StartCoroutine (Call (w));
 		} else {
 			Debug.Log ("Passwords don't match.");

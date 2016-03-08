@@ -6,7 +6,8 @@ public class RandomShape : MonoBehaviour {
 	public string namez;
 	public GameScore gs;
 	// Use this for initialization
-	void Start () {		
+	void Start () {	
+		gs = new GameScore ();
 		namez = "shape" + GameObject.Find ("shapetap").GetComponent<SpriteRenderer> ().sprite.name;
 		int num = Random.Range (1, 6);
 		GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("shapes/shape"+ num, typeof(Sprite)) as Sprite;
@@ -43,8 +44,13 @@ public class RandomShape : MonoBehaviour {
 		if (G1.counter < 10)
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		else {
+<<<<<<< HEAD
 			gs.addScore (1, 1, G1.counter);
 			SceneManager.LoadScene ("congrats");	
+=======
+			gs.addScore (1, 0, Congrats.score);
+			SceneManager.LoadScene ("congrats");		
+>>>>>>> 571384015fec5a0fbfeaa6fbc00f772fb43c5ba6
 		}
 	}
 }

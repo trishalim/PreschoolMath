@@ -15,7 +15,6 @@ public class GameScore : MonoBehaviour {
 		form.AddField("score", score);
 		form.AddField("username", UserController.username);
 		WWW w = new WWW (Url.url + "/unity/add_score.php", form);
-		//WWW w = new WWW("http://preschoolmath.x10host.com/unity/add_score.php", form);
 		StartCoroutine (Call (w));
 	}
 

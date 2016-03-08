@@ -15,7 +15,7 @@ public class Music : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (SceneManager.GetActiveScene ().name != "game3" && SceneManager.GetActiveScene ().name != "sub") {
+		if (SceneManager.GetActiveScene ().name != "game3" && SceneManager.GetActiveScene ().name != "sub" && SceneManager.GetActiveScene ().name != "game1") {
 			GetComponent<AudioSource> ().Stop ();
 			AudioBegin = false;
 		}

@@ -45,10 +45,12 @@ public class Pause : MonoBehaviour {
 	}
 
 	void restart(){
+		Congrats.score = 0;
 		SceneManager.LoadScene (PlayerController.currentgame);
 	}
 
 	void quit(){
+		Congrats.score = 0;
 		SceneManager.LoadScene ("submenu");
 	}
 }

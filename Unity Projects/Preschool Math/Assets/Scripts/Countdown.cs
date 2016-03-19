@@ -15,6 +15,7 @@ public class Countdown : MonoBehaviour {
 		yield return new WaitForSeconds (2);
 		GameObject.Find ("count").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("count1", typeof(Sprite)) as Sprite;
 		GameObject.Find ("inst").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("Game2/tapanywhere", typeof(Sprite)) as Sprite;
+		GameObject.Find ("sfx2").GetComponent<AudioSource> ().Play ();
 		yield return new WaitForSeconds (2);
 		GameObject.Find ("count").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("countgo", typeof(Sprite)) as Sprite;
 		GameObject.Find ("inst").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("Game2/letsstart", typeof(Sprite)) as Sprite;

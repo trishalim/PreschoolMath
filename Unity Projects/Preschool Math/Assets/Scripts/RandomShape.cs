@@ -4,11 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class RandomShape : MonoBehaviour {
 	public string namez;
-	public GameScore gs;
+	public int numsfx;
 	// Use this for initialization
 	void Start () {	
-		gs = new GameScore ();
 		namez = "shape" + GameObject.Find ("shapetap").GetComponent<SpriteRenderer> ().sprite.name;
+		Debug.Log (this.name + " " +G1.counter + " " + namez);
 		int num = Random.Range (1, 6);
 		GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("shapes/shape"+ num, typeof(Sprite)) as Sprite;
 		if (gameObject.name == "shape" + G1.num1) {
@@ -24,13 +24,20 @@ public class RandomShape : MonoBehaviour {
 
 	void OnMouseDown(){
 		G1.counter++;
-		Debug.Log (G1.counter);
+		Debug.Log (G1.counter + " " + gameObject.GetComponent<SpriteRenderer> ().sprite.name);
+		Debug.Log (G1.counter + " " + namez);
 		if (gameObject.GetComponent<SpriteRenderer> ().sprite.name == namez) {
+			numsfx = Random.Range (0, 2);
+			if(numsfx == 1)
+				GameObject.Find("sfx1").GetComponent<AudioSource> ().Play ();
 			GameObject.Find("tap").GetComponent<AudioSource> ().Play ();
 			Congrats.score++;
 			GameObject.Find (gameObject.name + "glow").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("shapes/glowc", typeof(Sprite)) as Sprite;
 			GameObject.Find (gameObject.name + "check").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("check", typeof(Sprite)) as Sprite;
 		} else {
+			numsfx = Random.Range (2, 5);
+			if(numsfx == 2 || numsfx == 3)
+				GameObject.Find("sfx" + numsfx.ToString()).GetComponent<AudioSource> ().Play ();
 			GameObject.Find("shapetap").GetComponent<AudioSource> ().Play ();
 			GameObject.Find(gameObject.name + "glow").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("shapes/gloww", typeof(Sprite)) as Sprite;
 			GameObject.Find(gameObject.name + "check").GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("wrong", typeof(Sprite)) as Sprite;
@@ -44,13 +51,25 @@ public class RandomShape : MonoBehaviour {
 		if (G1.counter < 10)
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		else {
-<<<<<<< HEAD
-			gs.addScore (1, 1, G1.counter);
+			G1.counter = 0;
+			addScore (1, 1, Congrats.score * 10);
 			SceneManager.LoadScene ("congrats");	
-=======
-			gs.addScore (1, 0, Congrats.score);
-			SceneManager.LoadScene ("congrats");		
->>>>>>> 571384015fec5a0fbfeaa6fbc00f772fb43c5ba6
 		}
+	}
+
+	public void addScore(int game_id, int level, int score) {
+		WWWForm form = new WWWForm();
+		form.AddField("game_id", game_id);
+		form.AddField("level", level);
+		form.AddField("score", score);
+		form.AddField("username", UserController.username);
+		WWW w = new WWW (Url.url + "/unity/add_score.php", form);
+		StartCoroutine (Call (w));
+	}
+
+	IEnumerator Call (WWW w){
+		yield return w;
+		Debug.Log ("call");
+		Debug.Log (w.text);
 	}
 }

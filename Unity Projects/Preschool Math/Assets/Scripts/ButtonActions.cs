@@ -33,4 +33,24 @@ public class ButtonActions : MonoBehaviour
 	{
 		SceneManager.LoadScene("game2lev5");
 	}
+	public void LoadLev6()
+	{
+		SceneManager.LoadScene("game2lev6");
+	}
+	public void LoadLev7()
+	{
+		SceneManager.LoadScene("game2lev7");
+	}
+	public void LoadLev8()
+	{
+		SceneManager.LoadScene("game2lev8");
+	}
+	public void LoadLev9()
+	{
+		SceneManager.LoadScene("game2lev9");
+	}
+	public void LoadLev10()
+	{
+		SceneManager.LoadScene("game2lev10");
+	}
 }

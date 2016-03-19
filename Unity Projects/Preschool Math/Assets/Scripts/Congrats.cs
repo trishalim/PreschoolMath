@@ -8,7 +8,10 @@ public class Congrats : MonoBehaviour {
 	void Start () {
 		glow = GameObject.Find ("glowcong");
 		glow2 = GameObject.Find ("glowcong2");
+		Game3Sub.repeat = 0;
+		G1.counter = 0;
 		StartCoroutine (congrats ());
+		score = 0;
 	}
 	
 	// Update is called once per frame
@@ -20,16 +23,24 @@ public class Congrats : MonoBehaviour {
 	IEnumerator congrats(){
 		GameObject.Find ("score").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("n" + score, typeof(Sprite)) as Sprite;
 		int i = score/2;
+		if (score % 2 != 0)
+			i += 1;
+		GameObject.Find ("sfx" + i.ToString ()).GetComponent<AudioSource> ().Play ();
 		switch (i) {
 			case 5:
-				GameObject.Find ("congmsg").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("congex", typeof(Sprite)) as Sprite;
+				GameObject.Find ("congmsg").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("congam", typeof(Sprite)) as Sprite;
 				break;
 			case 4:
+				GameObject.Find ("congmsg").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("congex", typeof(Sprite)) as Sprite;
+				break;
 			case 3:
 				GameObject.Find ("bgcong").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("bgcong1", typeof(Sprite)) as Sprite;
 				GameObject.Find ("congmsg").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("conggreat", typeof(Sprite)) as Sprite;
 				break;
 			case 2:
+				GameObject.Find ("bgcong").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("bgcong1", typeof(Sprite)) as Sprite;
+				GameObject.Find ("congmsg").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("congbet", typeof(Sprite)) as Sprite;
+				break;
 			case 1:
 			default:
 				GameObject.Find ("bgcong").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("bgcong2", typeof(Sprite)) as Sprite;

@@ -25,16 +25,25 @@ public class Game3Sub : MonoBehaviour {
 	}
 
 	IEnumerator game3subt(){
+		GameObject.Find ("there (1)").GetComponent<AudioSource> ().Play ();
 		GameObject.Find ("there").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("there", typeof(Sprite)) as Sprite;
 		GameObject.Find ("minuend").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("ans" + num1.ToString(), typeof(Sprite)) as Sprite;
 		GameObject.Find ("fruitword").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("frtwrd" + fruit.ToString(), typeof(Sprite)) as Sprite;
+		yield return new WaitForSeconds (0.4f);
+		GameObject.Find (num1.ToString() + "1 (1)").GetComponent<AudioSource> ().Play ();
+		yield return new WaitForSeconds (0.6f);
+		GameObject.Find ("frt" + fruit.ToString()).GetComponent<AudioSource> ().Play ();
+		yield return new WaitForSeconds (0.6f);
+		GameObject.Find ("on the tree (1)").GetComponent<AudioSource> ().Play ();
 		yield return new WaitForSeconds (1);
 		GameObject.Find ("but").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("but", typeof(Sprite)) as Sprite;
 		GameObject.Find ("subtrahend").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("ans" + num2.ToString(), typeof(Sprite)) as Sprite;
 		GameObject.Find ("fell").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("fell", typeof(Sprite)) as Sprite;
 		yield return new WaitForSeconds (1);
+		GameObject.Find (num2.ToString() + "2 (1)").GetComponent<AudioSource> ().Play ();
 		dropFruits ();
 		yield return new WaitForSeconds (1);
+		GameObject.Find ("fell (1)").GetComponent<AudioSource> ().Play ();
 		GameObject.Find ("how").GetComponent<SpriteRenderer> ().sprite = (Sprite)Resources.Load ("how", typeof(Sprite)) as Sprite;
 		yield return new WaitForSeconds (1);
 		setChoices ();
@@ -79,6 +88,7 @@ public class Game3Sub : MonoBehaviour {
 					choices[i] = Random.Range (1, 11);
 					opt = checkChoice (choices [i]);
 				}
+				cho [choices [i]] = 1;
 				option = GameObject.Find ("ans" + i.ToString ());
 				option.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load ("ans" + choices[i].ToString(), typeof(Sprite)) as Sprite;
 			}

@@ -25,7 +25,7 @@ public class Game3 : MonoBehaviour {
 		int numF, numS, i, j;
 		numF = Random.Range (1, 6);
 		numS = Random.Range (1, 6);
-
+		StartCoroutine (sound (numF, numS));
 		for (i = 1; i <= numF; i++) {
 			digit = GameObject.Find ("digit1" + i.ToString());
 			digit.GetComponent<SpriteRenderer> ().sprite = fruit1;
@@ -37,6 +37,16 @@ public class Game3 : MonoBehaviour {
 		}
 		answer = numF + numS;
 		setChoices (answer);
+	}
+
+	IEnumerator sound(int num1, int num2){
+		GameObject.Find (num1.ToString() + "1 (1)").GetComponent<AudioSource> ().Play ();
+		yield return new WaitForSeconds (0.7f);
+		GameObject.Find ("operation").GetComponent<AudioSource> ().Play ();
+		yield return new WaitForSeconds (0.7f);
+		GameObject.Find (num2.ToString() + "1 (1)").GetComponent<AudioSource> ().Play ();
+		yield return new WaitForSeconds (0.7f);
+		GameObject.Find ("equals").GetComponent<AudioSource> ().Play ();
 	}
 
 	public void setChoices(int ans){
@@ -59,6 +69,7 @@ public class Game3 : MonoBehaviour {
 					choices[i] = Random.Range (1, 11);
 					opt = checkChoice (choices [i]);
 				}
+				cho [choices [i]] = 1;
 				option = GameObject.Find ("choice" + i.ToString ());
 				option.GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load ("ans" + choices[i].ToString(), typeof(Sprite)) as Sprite;
 			}

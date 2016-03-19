@@ -6,7 +6,6 @@ public class G2Btn : MonoBehaviour {
 	public int game;
 	// Use this for initialization
 	void Start () {
-	
 	}
 	
 	// Update is called once per frame

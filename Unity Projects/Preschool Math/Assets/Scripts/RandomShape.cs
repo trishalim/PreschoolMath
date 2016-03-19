@@ -53,7 +53,7 @@ public class RandomShape : MonoBehaviour {
 		else {
 			G1.counter = 0;
 			addScore (1, 1, Congrats.score * 10);
-			SceneManager.LoadScene ("congrats");		
+			SceneManager.LoadScene ("congrats");	
 		}
 	}
 

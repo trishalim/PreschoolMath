@@ -2,5 +2,5 @@
 using System.Collections;
 
 public class Url : MonoBehaviour {
-	public static string url = "http://preschoolmath.x10host.com";
+	public static string url = "http://192.168.43.220/preschoolmath";
 }

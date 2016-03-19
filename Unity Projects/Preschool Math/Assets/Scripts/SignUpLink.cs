@@ -18,5 +18,9 @@ public class SignUpLink : MonoBehaviour {
 	
 	}
 
+	void OnMouseDown(){
+		Debug.Log ("MOUSEOWN");
+	}
+
 
 }

@@ -8,7 +8,6 @@ public class RandomShape : MonoBehaviour {
 	// Use this for initialization
 	void Start () {	
 		namez = "shape" + GameObject.Find ("shapetap").GetComponent<SpriteRenderer> ().sprite.name;
-		Debug.Log (this.name + " " +G1.counter + " " + namez);
 		int num = Random.Range (1, 6);
 		GetComponent<SpriteRenderer>().sprite = (Sprite)Resources.Load("shapes/shape"+ num, typeof(Sprite)) as Sprite;
 		if (gameObject.name == "shape" + G1.num1) {
@@ -24,8 +23,6 @@ public class RandomShape : MonoBehaviour {
 
 	void OnMouseDown(){
 		G1.counter++;
-		Debug.Log (G1.counter + " " + gameObject.GetComponent<SpriteRenderer> ().sprite.name);
-		Debug.Log (G1.counter + " " + namez);
 		if (gameObject.GetComponent<SpriteRenderer> ().sprite.name == namez) {
 			numsfx = Random.Range (0, 2);
 			if(numsfx == 1)
@@ -52,7 +49,7 @@ public class RandomShape : MonoBehaviour {
 			SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
 		else {
 			G1.counter = 0;
-			addScore (1, 1, Congrats.score * 10);
+			addScore (1, 1, Congrats.score);
 			SceneManager.LoadScene ("congrats");	
 		}
 	}
@@ -69,7 +66,5 @@ public class RandomShape : MonoBehaviour {
 
 	IEnumerator Call (WWW w){
 		yield return w;
-		Debug.Log ("call");
-		Debug.Log (w.text);
 	}
 }

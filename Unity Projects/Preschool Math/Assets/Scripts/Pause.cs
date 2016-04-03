@@ -35,7 +35,10 @@ public class Pause : MonoBehaviour {
 			G3S (false);
 		if (SceneManager.GetActiveScene ().buildIndex > 11 && SceneManager.GetActiveScene ().buildIndex < 22)
 			G2 (false);
-		pauz(true);
+		if ((SceneManager.GetActiveScene ().buildIndex < 22 && SceneManager.GetActiveScene ().buildIndex > 11) || SceneManager.GetActiveScene ().name == "sub")
+			pauz2 (true);
+		else
+			pauz (true);
 		Time.timeScale = 0;
 		yield return new WaitForSeconds (0.1f);
 	}
@@ -49,6 +52,17 @@ public class Pause : MonoBehaviour {
 		GameObject.Find ("restartbtn").GetComponent<Button> ().interactable = action;
 		GameObject.Find ("quitbtn").GetComponent<Image> ().enabled = action;
 		GameObject.Find ("quitbtn").GetComponent<Button> ().interactable = action;
+	}
+
+	void pauz2(bool action){
+		GameObject.Find ("pause").GetComponent<SpriteRenderer> ().enabled = action;
+		GameObject.Find ("pausemenu").GetComponent<SpriteRenderer> ().enabled = action;
+		GameObject.Find ("resume").GetComponent<SpriteRenderer> ().enabled = action;
+		GameObject.Find ("resume").GetComponent<BoxCollider2D> ().enabled = action;
+		GameObject.Find ("restart").GetComponent<SpriteRenderer> ().enabled = action;
+		GameObject.Find ("restart").GetComponent<BoxCollider2D> ().enabled = action;
+		GameObject.Find ("quit").GetComponent<SpriteRenderer> ().enabled = action;
+		GameObject.Find ("quit").GetComponent<BoxCollider2D> ().enabled = action;
 	}
 
 	void G1A(bool action){
@@ -75,14 +89,17 @@ public class Pause : MonoBehaviour {
 	void G2(bool action){
 		GameObject.Find ("exit").GetComponent<CircleCollider2D> ().enabled = action;
 		GameObject.Find ("Player").GetComponent<PlayerController> ().enabled = action;
+		GameObject.Find ("Player").GetComponent<Animator> ().enabled = action;
+		GameObject.Find ("Ground").GetComponent<GroundController> ().enabled = action;
+		GameObject.Find ("Ground2").GetComponent<GroundController> ().enabled = action;
 	}
 
 	public void resume(){
-		Debug.Log ("sdgd");
 		Time.timeScale = 1;
-		Debug.Log ("sdgd");
-		pauz (false);
-		Debug.Log ("hadfgfdhaha");
+		if ((SceneManager.GetActiveScene ().buildIndex < 22 && SceneManager.GetActiveScene ().buildIndex > 11) || SceneManager.GetActiveScene ().name == "sub")
+			pauz2 (false);
+		else
+			pauz (false);
 		if (SceneManager.GetActiveScene ().name == "game1")
 			G1A (true);
 		if (SceneManager.GetActiveScene ().name == "game3")
@@ -97,6 +114,7 @@ public class Pause : MonoBehaviour {
 		Time.timeScale = 1;
 		Game3Sub.repeat = 0;
 		G1.counter = 0;
+		PlayerController.lives = 5;
 		Congrats.score = 0;
 		SceneManager.LoadScene (PlayerController.currentgame);
 	}
@@ -105,6 +123,7 @@ public class Pause : MonoBehaviour {
 		Time.timeScale = 1;
 		Game3Sub.repeat = 0;
 		G1.counter = 0;
+		PlayerController.lives = 5;
 		Congrats.score = 0;
 		SceneManager.LoadScene ("submenu");
 	}

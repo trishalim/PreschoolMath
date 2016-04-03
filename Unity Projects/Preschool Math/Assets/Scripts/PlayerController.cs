@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 	
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour {
 	public static int currentgame;
 	// Use this for initialization
 	void Start () {
+		lives = 5;
+		currentgame = SceneManager.GetActiveScene ().buildIndex;
 		anim = GetComponent<Animator> ();
 		currentNum = (level * 10) - 9;
 		target = level * 10;

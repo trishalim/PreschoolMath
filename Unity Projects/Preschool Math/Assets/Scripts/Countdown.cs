@@ -27,5 +27,6 @@ public class Countdown : MonoBehaviour {
 		GameObject.Find ("Ground2").GetComponent<GroundController> ().enabled = true;
 		GameObject.Find ("Player").GetComponent<PlayerController> ().enabled = true;
 		GameObject.Find ("Player").GetComponent<Animator> ().enabled = true;
+		GameObject.Find ("exit").GetComponent<CircleCollider2D> ().enabled = true;
 	}
 }

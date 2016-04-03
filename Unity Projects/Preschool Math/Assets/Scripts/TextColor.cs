@@ -39,7 +39,6 @@ public class TextColor : MonoBehaviour {
 			PlayerController.currentNum++;
 		}
 		else {
-			Debug.Log(PlayerController.lives);
 			if(PlayerController.lives > 1){
 				GameObject.Find("heart1").GetComponent<AudioSource> ().Play ();
 				gameOb = GameObject.Find("heart" + PlayerController.lives);
@@ -58,6 +57,8 @@ public class TextColor : MonoBehaviour {
 	}
 
 	public void score(){
-		GameObject.Find("script").GetComponent<GameScore>().addScore (2, lev, Congrats.score * 10);
+		Debug.Log (lev);
+		Debug.Log (Congrats.score);
+		GameObject.Find("script").GetComponent<GameScore>().addScore (2, lev, Congrats.score);
 	}
 }

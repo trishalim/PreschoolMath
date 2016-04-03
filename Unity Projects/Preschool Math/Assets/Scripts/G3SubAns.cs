@@ -30,7 +30,7 @@ public class G3SubAns : MonoBehaviour {
 			StartCoroutine (playAgain ());
 		else {
 			Game3Sub.repeat = 0;
-			addScore (3, 2, Congrats.score *10);
+			addScore (3, 2, Congrats.score);
 			SceneManager.LoadScene ("congrats");
 		}
 	}

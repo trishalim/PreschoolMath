@@ -15,6 +15,7 @@ public class ButtonActions : MonoBehaviour {
 	}
 
 	public void play(){
+		GameObject.Find ("btn").GetComponent<AudioSource> ().Play ();
 		SceneManager.LoadScene("game");
 	}
 }
